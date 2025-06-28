@@ -1,0 +1,71 @@
+{% extends 'paginas/base.html' %}
+{% load static %}
+
+{% block title %}
+    <title>Contato</title>
+{% endblock %}
+
+{% block header %}
+    <style>
+        .contato-info {
+            max-width: 600px;
+            margin: auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        .contato-info h2 {
+            color: #4CAF50;
+        }
+
+        .contato-info p {
+            margin: 10px 0;
+            font-size: 16px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+        }
+    </style>
+
+    <header>
+        <div class="container">
+            <h1>Entre em Contato</h1>
+            <nav>
+                <ul>
+                    <li><a href="{% url 'index' %}">Home</a></li>
+                    <li><a href="{% url 'sobre' %}">Sobre</a></li>
+                    <li><a href="{% url 'servicos' %}">Serviços</a></li>
+                    <li><a href="{% url 'contato' %}">Contato</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+{% endblock %}
+
+{% block main %}
+    <main>
+        <div class="container">
+            <div class="contato-info">
+                <h2>Informações de Contato</h2>
+                <p><strong>📧 E-mail:</strong> nossaempresa@email.com</p>
+                <p><strong>📞 Telefone:</strong> +244 923 000 000</p>
+                <p><strong>📍 Endereço:</strong> Rua das Inovações, Nº 123, Luanda - Angola</p>
+                <p><strong>📱 WhatsApp:</strong> +244 923 000 000</p>
+                <p><strong>🌐 Instagram:</strong> <a href="https://instagram.com/nossaempresa" target="_blank">@nossaempresa</a></p>
+            </div>
+        </div>
+    </main>
+{% endblock %}
+
+{% block footer %}
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Nossa Empresa | Todos os direitos reservados.</p>
+        </div>
+    </footer>
+{% endblock %}

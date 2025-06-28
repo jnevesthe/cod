@@ -1,0 +1,89 @@
+{% extends 'paginas/base.html' %}
+{% load static %}
+
+{% block title %}
+    <title>Solicitar Serviço</title>
+{% endblock %}
+
+{% block header %}
+    <style>
+        form {
+            max-width: 600px;
+            margin: auto;
+        }
+
+        select, input, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+        }
+    </style>
+
+    <header>
+        <div class="container">
+            <h1>Solicitar um Serviço</h1>
+        </div>
+    </header>
+{% endblock %}
+
+{% block main %}
+    <main>
+        <div class="container">
+            <h2>Preencha o formulário</h2>
+            <form method="post">
+                {% csrf_token %}
+                <label for="tipo">Tipo de Serviço:</label>
+                <select name="tipo" id="tipo" required>
+                    <option value="">Selecione...</option>
+                    <option value="Desenvolvimento Web">Desenvolvimento Web</option>
+                    <option value="Aplicativo Mobile">Aplicativo Mobile</option>
+                    <option value="Software Desktop">Software Desktop</option>
+                </select>
+
+                <label for="email_cliente">Seu E-mail:</label>
+                <input type="email" name="email_cliente" id="email_cliente" required>
+
+                <label for="mensagem">Descrição do Projeto:</label>
+                <textarea name="mensagem" id="mensagem" rows="5" required></textarea>
+
+                <button type="submit">Enviar Pedido</button>
+            </form>
+
+            {% if enviado %}
+    <p style="color:green;">✅ Pedido enviado com sucesso!</p>
+{% elif erro %}
+    <p style="color:red;">❌ Erro ao enviar pedido. Tente novamente mais tarde.</p>
+{% endif %}
+        </div>
+    </main>
+{% endblock %}
+
+{% block footer %}
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Nossa Empresa | Todos os direitos reservados.</p>
+        </div>
+    </footer>
+{% endblock %}

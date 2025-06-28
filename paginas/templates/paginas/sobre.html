@@ -1,0 +1,107 @@
+{% extends 'paginas/base.html' %}
+{% load static %}
+
+{% block title %}
+    <title>Sobre</title>
+{% endblock %}
+
+{% block header %}
+    <style>
+        .team-member img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 50%;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            margin-bottom: 10px;
+        }
+
+        .team-member {
+            display: inline-block;
+            text-align: center;
+            margin: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: auto;
+        }
+    </style>
+
+    <header>
+        <div class="container">
+            <h1>Sobre Nossa Empresa</h1>
+            <nav>
+                <ul>
+                    <li><a href="{% url 'index' %}">Home</a></li>
+                    <li><a href="{% url 'sobre' %}">Sobre</a></li>
+                    <li><a href="{% url 'servicos' %}">Serviços</a></li>
+                    <li><a href="{% url 'contato' %}">Contato</a></li>
+                    <li><a href="{% url 'info' %}">Informações</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+{% endblock %}
+
+{% block main %}
+    <main>
+        <div class="container">
+            <!-- Seção Quem Somos -->
+            <section class="intro">
+                <h2>Quem Somos?</h2>
+                <p>Somos uma empresa inovadora, focada em proporcionar as melhores soluções tecnológicas para nossos clientes. Trabalhamos com um time especializado, comprometido em transformar ideias em realidade!</p>
+            </section>
+
+            <!-- Seção Nossa Missão -->
+            <section class="missao">
+                <h2>Nossa Missão</h2>
+                <p>Levar inovação e qualidade aos nossos clientes, criando produtos e serviços que geram valor e impacto real no mercado.</p>
+            </section>
+
+            <!-- Seção Valores -->
+            <section class="valores">
+                <h2>Valores</h2>
+                <ul>
+                    <li>Inovação constante</li>
+                    <li>Comprometimento com a qualidade</li>
+                    <li>Transparência e ética</li>
+                    <li>Respeito ao cliente e ao meio ambiente</li>
+                </ul>
+            </section>
+
+            <!-- Seção Conheça a Equipe -->
+            <section class="equipe">
+                <h2>Conheça Nossa Equipe</h2>
+                <div class="team-member">
+                    <img src="{% static 'foto.jpg' %}" alt="Membro 1">
+                    <h3>João Silva</h3>
+                    <p>Fundador & CEO</p>
+                </div>
+                <div class="team-member">
+                    <img src="{% static 'foto.jpg' %}" alt="Membro 2">
+                    <h3>Maria Oliveira</h3>
+                    <p>Diretora de Marketing</p>
+                </div>
+                <div class="team-member">
+                    <img src="{% static 'foto.jpg' %}" alt="Membro 3">
+                    <h3>Lucas Souza</h3>
+                    <p>Gerente de TI</p>
+                </div>
+            </section>
+        </div>
+    </main>
+{% endblock %}
+
+{% block footer %}
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Nossa Empresa | Todos os direitos reservados.</p>
+            <nav>
+                <ul>
+                    <li><a href="{% url 'index' %}">Home</a></li>
+                </ul>
+            </nav>
+        </div>
+    </footer>
+{% endblock %}
