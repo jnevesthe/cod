@@ -1,0 +1,76 @@
+from django.views.generic import TemplateView
+ 
+from django.urls import reverse_lazy
+
+from django.views.generic.edit import CreateView
+from django.views.generic.list import ListView
+
+from .models import Inf
+
+from django.core.mail import send_mail
+from django.shortcuts import render
+from django.conf import settings
+
+class Index(TemplateView):
+    template_name='paginas/index.html'
+    
+class Sobre(TemplateView):
+    template_name='paginas/sobre.html'  
+    
+    
+class InfoCreateView(CreateView): 
+    model=Inf
+    fields=['titulo', 'descricao', 'imagem']
+    template_name='paginas/form.html'
+    success_url=reverse_lazy('info')
+
+
+class InfoListView(ListView):
+    model=Inf
+    template_name='paginas/info.html'
+    context_object_name='itens'
+    
+class Contato(TemplateView):
+    template_name='paginas/contacto.html'
+    
+    
+    
+
+from django.core.mail import send_mail, BadHeaderError
+from django.shortcuts import render, redirect
+from django.conf import settings
+from django.contrib import messages
+
+def Servicos(request):
+    enviado = False
+    erro = False
+
+    if request.method == "POST":
+        tipo = request.POST.get('tipo')
+        email_cliente = request.POST.get('email_cliente')
+        mensagem = request.POST.get('mensagem')
+
+        corpo_email = f"""
+        Novo pedido de serviço:
+
+        Tipo de Serviço: {tipo}
+        E-mail do Cliente: {email_cliente}
+        Descrição do Projeto:
+        {mensagem}
+        """
+
+        try:
+            send_mail(
+                subject='Novo Pedido de Serviço',
+                message=corpo_email,
+                from_email=settings.DEFAULT_FROM_EMAIL,
+                recipient_list=['SEUEMAIL@exemplo.com'],
+                fail_silently=False,
+            )
+            enviado = True
+        except Exception as e:
+            print("Erro ao enviar email:", e)
+            erro = True
+
+    return render(request, 'paginas/servicos.html', {'enviado': enviado, 'erro': erro})    
+     
