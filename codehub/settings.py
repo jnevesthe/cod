@@ -55,10 +55,6 @@ DATABASES = {
     }
 }
 
-DATABASES = {
-    'default': dj_database_url.config(default='sqlite:///db.sqlite3')
-}
-
 AUTH_PASSWORD_VALIDATORS = [
     {'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator'},
     {'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator'},
