@@ -6,6 +6,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = 'django-insecure-gn3mj^1l9gblyji8h^v2!9g-ir1kpo-7ie=%!z$j&^z3i1snq$'
 
+ALLOWED_HOSTS = ['*']
 DEBUG = True
 
 
@@ -66,11 +67,12 @@ AUTH_PASSWORD_VALIDATORS = [
 
 
 # ✅ Arquivos estáticos
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 # ✅ Arquivos de mídia (upload de imagens etc.)
-MEDIA_URL = 'media/'
+MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 TIME_ZONE = 'UTC'  # Deixe como UTC no backend
@@ -85,7 +87,5 @@ EMAIL_HOST_USER = 'SEUEMAIL@gmail.com'
 EMAIL_HOST_PASSWORD = 'SUA-SENHA-DE-APLICATIVO'  # Use senha de app se for Gmail
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 
-ALLOWED_HOSTS = ['*']
 
-import os
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
