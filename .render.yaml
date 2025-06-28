@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: meu-site-django
+    runtime: python
+    buildCommand: |
+      pip install -r requirements.txt
+      python manage.py collectstatic --noinput
+    startCommand: gunicorn codehub.wsgi
+    envVars:
+      - key: DJANGO_SETTINGS_MODULE
+        value: codehub.settings
+    staticPublishPath: staticfiles
