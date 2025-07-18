@@ -70,17 +70,19 @@
         </main>
     {% endblock %}
 
-    {% block footer %}
+{% block footer %}
         <footer>
-            <div class="container">
-                <p>&copy; 2025 Página Bonita | Todos os direitos reservados.</p>
-                <nav>
-                    <ul>
-                        <li><a href="{% url 'sobre' %}">Sobre</a></li>
-                    </ul>
-                </nav>
-            </div>
+    <div class="container">
+        <p>&copy; 2025 Página Bonita | Todos os direitos reservados.</p>
+        <nav>
+            <ul>
+                <li><a href="{% url 'sobre' %}">Sobre</a></li>
+                <li><a href="{% url 'termos' %}">Termos de Uso</a></li>
+                <li><a href="{% url 'privacidade' %}">Política de Privacidade</a></li>
+            </ul>
+        </nav>
+    </div>
         </footer>
-    {% endblock %}
+{% endblock %}
 </body>
 </html>
