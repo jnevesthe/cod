@@ -1,46 +1,41 @@
 from django.views.generic import TemplateView
- 
 from django.urls import reverse_lazy
-
 from django.views.generic.edit import CreateView
 from django.views.generic.list import ListView
-
 from .models import Inf
-
 from django.core.mail import send_mail
 from django.shortcuts import render
 from django.conf import settings
 
+# Páginas estáticas
 class Index(TemplateView):
-    template_name='paginas/index.html'
-    
-class Sobre(TemplateView):
-    template_name='paginas/sobre.html'  
-    
-    
-class InfoCreateView(CreateView): 
-    model=Inf
-    fields=['titulo', 'descricao', 'imagem']
-    template_name='paginas/form.html'
-    success_url=reverse_lazy('info')
+    template_name = 'paginas/index.html'
 
+class Sobre(TemplateView):
+    template_name = 'paginas/sobre.html'
+
+class Contato(TemplateView):
+    template_name = 'paginas/contacto.html'
+
+class Termos(TemplateView):
+    template_name = 'paginas/termos.html'
+
+class Privacidade(TemplateView):
+    template_name = 'paginas/privacidade.html'
+
+# Info
+class InfoCreateView(CreateView):
+    model = Inf
+    fields = ['titulo', 'descricao', 'imagem']
+    template_name = 'paginas/form.html'
+    success_url = reverse_lazy('info')
 
 class InfoListView(ListView):
-    model=Inf
-    template_name='paginas/info.html'
-    context_object_name='itens'
-    
-class Contato(TemplateView):
-    template_name='paginas/contacto.html'
-    
-    
-    
+    model = Inf
+    template_name = 'paginas/info.html'
+    context_object_name = 'itens'
 
-from django.core.mail import send_mail, BadHeaderError
-from django.shortcuts import render, redirect
-from django.conf import settings
-from django.contrib import messages
-
+# Serviços com envio de e-mail
 def Servicos(request):
     enviado = False
     erro = False
@@ -72,5 +67,4 @@ def Servicos(request):
             print("Erro ao enviar email:", e)
             erro = True
 
-    return render(request, 'paginas/servicos.html', {'enviado': enviado, 'erro': erro})    
-     
+    return render(request, 'paginas/servicos.html', {'enviado': enviado, 'erro': erro})
