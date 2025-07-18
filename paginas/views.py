@@ -59,7 +59,7 @@ def Servicos(request):
                 subject='Novo Pedido de Serviço',
                 message=corpo_email,
                 from_email=settings.DEFAULT_FROM_EMAIL,
-                recipient_list=['SEUEMAIL@exemplo.com'],
+                recipient_list=['nevesjosemar9@gmail.com'],
                 fail_silently=False,
             )
             enviado = True
