@@ -86,7 +86,7 @@ EMAIL_HOST = 'smtp.gmail.com'  # ou outro como smtp.office365.com, etc.
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'nevesjosemar9@gmail.com'
-EMAIL_HOST_PASSWORD = 'SUA-SENHA-DE-APLICATIVO'  # Use senha de app se for Gmail
+EMAIL_HOST_PASSWORD = 'bswc payg jgxt usxq'  # Use senha de app se for Gmail
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 
 
