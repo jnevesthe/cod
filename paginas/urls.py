@@ -1,7 +1,7 @@
 from django.conf import settings
 from django.conf.urls.static import static
 from django.urls import path
-from .views import InfoListView, Index, Sobre, Servicos, Contato
+from .views import InfoListView, Index, Sobre, Servicos, Contato, Termos, Privacidade
 from django.http import FileResponse
 import os
 
@@ -12,10 +12,16 @@ urlpatterns = [
     path('services/', Servicos, name='servicos'),
     path('contato/', Contato.as_view(), name='contato'),
 
-    # Rota para o ads.txt
-    path("ads.txt", lambda request: FileResponse(open(os.path.join(os.path.dirname(os.path.dirname(__file__)), "static", "ads.txt"), "rb"))),
+    # Novas páginas obrigatórias para AdSense
+    path('termos/', Termos.as_view(), name='termos'),
+    path('privacidade/', Privacidade.as_view(), name='privacidade'),
+
+    # Arquivo ads.txt
+    path("ads.txt", lambda request: FileResponse(open(
+        os.path.join(os.path.dirname(os.path.dirname(__file__)), "static", "ads.txt"), "rb"
+    ))),
 ]
 
-# (opcional) se estiver servindo arquivos estáticos localmente em DEBUG
+# Arquivos estáticos (modo desenvolvimento)
 if settings.DEBUG:
     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
