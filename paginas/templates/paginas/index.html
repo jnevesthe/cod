@@ -1,9 +1,49 @@
 {% extends "paginas/base.html" %}
+
 {% block main %}
-  
-    <p>A CodeHub é um espaço digital criado para conectar mentes criativas, entusiastas da tecnologia e empreendedores que desejam transformar ideias em realidade. Nosso objetivo é democratizar o acesso ao conhecimento em desenvolvimento web, design, aplicativos e soluções tecnológicas.</p>
+<main>
+    <div class="container">
 
-    <p>Na CodeHub, você encontra conteúdo educativo, serviços personalizados e uma comunidade comprometida com a inovação e a transformação digital. Aqui, acreditamos que tecnologia deve ser acessível a todos — não importa onde você esteja.</p>
+        <!-- NOVO TEXTO DE BOAS-VINDAS -->
+        <section class="intro">
+            <h2>Bem-vindo à CodeHub!</h2>
+            <p>A CodeHub é um espaço digital criado para conectar mentes criativas, entusiastas da tecnologia e empreendedores que desejam transformar ideias em realidade. Nosso objetivo é democratizar o acesso ao conhecimento em desenvolvimento web, design, aplicativos e soluções tecnológicas.</p>
 
-    <p>Explore nosso site, conheça nossos serviços e venha construir o futuro com a gente.</p>
+            <p>Na CodeHub, você encontra conteúdo educativo, serviços personalizados e uma comunidade comprometida com a inovação e a transformação digital. Aqui, acreditamos que tecnologia deve ser acessível a todos — não importa onde você esteja.</p>
+
+            <p>Explore nosso site, conheça nossos serviços e venha construir o futuro com a gente.</p>
+
+            <!-- BOTÃO AINDA AQUI -->
+            <a href="{% url 'servicos' %}" class="btn-cta">Saiba Mais</a>
+        </section>
+
+        <!-- BLOCO DE ANÚNCIO -->
+        <ins class="adsbygoogle"
+            style="display:block; text-align:center; margin: 20px auto;"
+            data-ad-client="ca-pub-1687261973938075"
+            data-ad-slot="1234567890"
+            data-ad-format="auto"
+            data-full-width-responsive="true"></ins>
+        <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+
+        <!-- SEÇÃO DOS CARDS -->
+        <section class="cards">
+            <div class="card">
+                <h3>Design Gráfico</h3>
+                <p>Oferecemos designs modernos e atrativos para sua marca.</p>
+            </div>
+            <div class="card">
+                <h3>Desenvolvimento Web</h3>
+                <p>Criamos sites e sistemas personalizados para seu negócio.</p>
+            </div>
+            <div class="card">
+                <h3>Desenvolvimento Mobile e Desktop</h3>
+                <p>Aplicativos para celular e programas para computador sob medida.</p>
+            </div>
+        </section>
+
+    </div>
+</main>
 {% endblock %}
